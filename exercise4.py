@@ -10,6 +10,7 @@ while index < len(range_object):
         print(f"The number is divisible by 3 {value}")
     index += 1
 '''
+
 from random import random, choice, uniform
 
 #4.2. Write a program that converts inches to centimeters until the user inputs a negative value.
@@ -21,25 +22,22 @@ while input_inches > 0:
     print(f"the entered{input_inches}inches is {centimeter} centimeter")
     input_inches = float(input("Enter a positive number in inches: or 0 to quit"))
 
-'''
 
+'''
 #4.3. Write a program that asks the user to enter numbers until they enter an empty string to quit.
 #Finally, the program prints out the smallest and largest number from the numbers it received.
 '''
-userInputList = []
-while True:
+max_number = None
+min_number = None
+user_input = input("Enter a number or enter empty string to quit!")
+while user_input!="":
+    user_input = float(user_input)
+    if max_number is None or max_number< user_input:
+        max_number = user_input
+    if min_number is None or min_number> user_input:
+        min_number = user_input
     user_input = input("Enter a number or enter empty string to quit!")
-    if user_input == "":
-        break
-    number = float(user_input)
-    userInputList.append(number)
-if userInputList:
-    smallest = min(userInputList)
-    largest = max(userInputList)
-    print(f"The smallest number is {smallest}")
-    print(f"The largest number is {largest}")
-else:
-    print("No numbers entered!")
+print(f"The maximum number is  {max_number}, the min number is  {min_number}")
 '''
 
 #4.4. Write a game where the computer draws a random integer between 1 and 10.
@@ -48,13 +46,13 @@ else:
 # Notice that the computer must not change the number between guesses.
 '''
 randomChoice =  choice(range(1,10))
+count = 0
 while True:
     userGuess = input("Guess a number or enter empty string to quit!")
     if userGuess == "":
         print("You choose to exit, good bye")
         break
     userGuess = int(userGuess)
-
     if userGuess < randomChoice:
         print(f"the guess number is {userGuess} and the random choice is {randomChoice} is vey low")
     elif userGuess > randomChoice:
@@ -62,6 +60,8 @@ while True:
     elif userGuess == randomChoice :
         print(f"the guessed  {userGuess} is correct {randomChoice} " )
         break
+    count +=1
+print(f"the number of try: {count}")
 '''
 #4.5. Write a program that asks the user for a username and password.
 # If either or both are incorrect, the program ask the user to enter the username and password again.
@@ -69,7 +69,7 @@ while True:
 # If the information is correct, the program prints out Welcome.
 # After five failed attempts the program prints out Access denied.
 # The correct username is python and password rules.
-'''
+''' 
 correct_username = "python"
 correct_password = "rules"
 max_attempts = 5
